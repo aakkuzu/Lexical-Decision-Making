@@ -1,12 +1,32 @@
 import tkinter
 
 def getWordList():
-        # TODO: read these from file
-        return [
-            ["lawn","just"],
-            ["band","cibbage"],
-            ["band1","cibbage1"]
-        ]
+  f= open('Words','r')
+
+  array = []
+
+  i = 0
+
+  for line in f:
+    if(line != '\n'):
+      array.append(line[:-1])
+    else:
+      continue
+
+  groupedArray = []
+
+  for word in array:
+    if(i%2 == 0):
+      groupedArray.append([word])
+    elif(i%2 == 1):
+      groupedArray[-1].append(word)
+
+    i = i +1
+
+  return groupedArray
+
+
+
         
 
 
